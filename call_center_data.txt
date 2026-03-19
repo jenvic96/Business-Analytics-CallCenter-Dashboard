@@ -1,0 +1,101 @@
+ID Llamada,Cliente,Agente,Fecha,Hora de inicio,Hora de finalización,Duración (min),Tipo de Llamada,Resultado,Nivel de satisfacción,Departamento
+1,Cliente A,Agente 1,2024-03-20,09:00:00,09:15:00,15,Venta,Exitosa,Alto,Ventas
+2,Cliente B,Agente 2,2024-03-20,09:05:00,09:25:00,20,Soporte,Técnico resuelto,Medio,Soporte Técnico
+3,Cliente C,Agente 3,2024-03-20,09:10:00,09:30:00,20,Consulta,Transferido a otro departamento,Bajo,Atención al Cliente
+4,Cliente D,Agente 1,2024-03-20,09:15:00,09:30:00,15,Queja,Resuelto,Alto,Servicio al Cliente
+5,Cliente E,Agente 2,2024-03-20,09:20:00,09:40:00,20,Venta,Exitosa,Medio,Ventas
+6,Cliente F,Agente 3,2024-03-20,09:25:00,09:45:00,20,Consulta,Información proporcionada,Bajo,Atención al Cliente
+7,Cliente G,Agente 1,2024-03-20,09:30:00,09:45:00,15,Soporte,Técnico resuelto,Alto,Soporte Técnico
+8,Cliente H,Agente 2,2024-03-20,09:35:00,09:55:00,20,Venta,Exitosa,Medio,Ventas
+9,Cliente I,Agente 3,2024-03-20,09:40:00,10:00:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+10,Cliente J,Agente 1,2024-03-20,09:45:00,10:00:00,15,Consulta,Información proporcionada,Alto,Atención al Cliente
+11,Cliente K,Agente 1,2024-03-20,09:50:00,10:05:00,15,Consulta,Información proporcionada,Medio,Atención al Cliente
+12,Cliente L,Agente 2,2024-03-20,09:55:00,10:15:00,20,Soporte,Problema sin resolver,Bajo,Soporte Técnico
+13,Cliente M,Agente 3,2024-03-20,10:00:00,10:20:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+14,Cliente N,Agente 1,2024-03-20,10:05:00,10:25:00,20,Consulta,Información proporcionada,Alto,Atención al Cliente
+15,Cliente O,Agente 2,2024-03-20,10:10:00,10:30:00,20,Venta,Exitosa,Alto,Ventas
+16,Cliente P,Agente 3,2024-03-20,10:15:00,10:35:00,20,Queja,Resuelto,Medio,Servicio al Cliente
+17,Cliente Q,Agente 1,2024-03-20,10:20:00,10:35:00,15,Consulta,Información proporcionada,Bajo,Atención al Cliente
+18,Cliente R,Agente 2,2024-03-20,10:25:00,10:45:00,20,Soporte,Técnico resuelto,Alto,Soporte Técnico
+19,Cliente S,Agente 3,2024-03-20,10:30:00,10:50:00,20,Venta,Exitosa,Alto,Ventas
+20,Cliente T,Agente 1,2024-03-20,10:35:00,10:55:00,20,Consulta,Transferido a otro departamento,Medio,Atención al Cliente
+21,Cliente U,Agente 1,2024-03-20,10:40:00,10:55:00,15,Consulta,Información proporcionada,Alto,Atención al Cliente
+22,Cliente V,Agente 2,2024-03-20,10:45:00,11:05:00,20,Soporte,Problema sin resolver,Bajo,Soporte Técnico
+23,Cliente W,Agente 3,2024-03-20,10:50:00,11:10:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+24,Cliente X,Agente 1,2024-03-20,10:55:00,11:15:00,20,Consulta,Información proporcionada,Medio,Atención al Cliente
+25,Cliente Y,Agente 2,2024-03-20,11:00:00,11:20:00,20,Venta,Exitosa,Alto,Ventas
+26,Cliente Z,Agente 3,2024-03-20,11:05:00,11:25:00,20,Queja,Resuelto,Medio,Servicio al Cliente
+27,Cliente AA,Agente 1,2024-03-20,11:10:00,11:25:00,15,Consulta,Información proporcionada,Bajo,Atención al Cliente
+28,Cliente BB,Agente 2,2024-03-20,11:15:00,11:35:00,20,Soporte,Técnico resuelto,Alto,Soporte Técnico
+29,Cliente CC,Agente 3,2024-03-20,11:20:00,11:40:00,20,Venta,Exitosa,Alto,Ventas
+30,Cliente DD,Agente 1,2024-03-20,11:25:00,11:45:00,20,Consulta,Transferido a otro departamento,Medio,Atención al Cliente
+31,Cliente EE,Agente 1,2024-03-20,11:30:00,11:45:00,15,Consulta,Información proporcionada,Alto,Atención al Cliente
+32,Cliente FF,Agente 2,2024-03-20,11:35:00,11:55:00,20,Soporte,Problema sin resolver,Bajo,Soporte Técnico
+33,Cliente GG,Agente 3,2024-03-20,11:40:00,12:00:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+34,Cliente HH,Agente 1,2024-03-20,11:45:00,12:05:00,20,Consulta,Información proporcionada,Medio,Atención al Cliente
+35,Cliente II,Agente 2,2024-03-20,11:50:00,12:10:00,20,Venta,Exitosa,Alto,Ventas
+36,Cliente JJ,Agente 3,2024-03-20,11:55:00,12:15:00,20,Queja,Resuelto,Medio,Servicio al Cliente
+37,Cliente KK,Agente 1,2024-03-20,12:00:00,12:15:00,15,Consulta,Información proporcionada,Bajo,Atención al Cliente
+38,Cliente LL,Agente 2,2024-03-20,12:05:00,12:25:00,20,Soporte,Técnico resuelto,Alto,Soporte Técnico
+39,Cliente MM,Agente 3,2024-03-20,12:10:00,12:30:00,20,Venta,Exitosa,Alto,Ventas
+40,Cliente NN,Agente 1,2024-03-20,12:15:00,12:35:00,20,Consulta,Transferido a otro departamento,Medio,Atención al Cliente
+41,Cliente OO,Agente 1,2024-03-20,12:20:00,12:35:00,15,Consulta,Información proporcionada,Alto,Atención al Cliente
+42,Cliente PP,Agente 2,2024-03-20,12:25:00,12:45:00,20,Soporte,Problema sin resolver,Bajo,Soporte Técnico
+43,Cliente QQ,Agente 3,2024-03-20,12:30:00,12:50:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+44,Cliente RR,Agente 1,2024-03-20,12:35:00,12:55:00,20,Consulta,Información proporcionada,Medio,Atención al Cliente
+45,Cliente SS,Agente 2,2024-03-20,12:40:00,13:00:00,20,Venta,Exitosa,Alto,Ventas
+46,Cliente TT,Agente 3,2024-03-20,12:45:00,13:05:00,20,Queja,Resuelto,Medio,Servicio al Cliente
+47,Cliente UU,Agente 1,2024-03-20,12:50:00,13:05:00,15,Consulta,Información proporcionada,Bajo,Atención al Cliente
+48,Cliente VV,Agente 2,2024-03-20,12:55:00,13:15:00,20,Soporte,Técnico resuelto,Alto,Soporte Técnico
+49,Cliente WW,Agente 3,2024-03-20,13:00:00,13:20:00,20,Venta,Exitosa,Alto,Ventas
+50,Cliente XX,Agente 1,2024-03-20,13:05:00,13:25:00,20,Consulta,Transferido a otro departamento,Medio,Atención al Cliente
+51,Cliente YY,Agente 1,2024-03-20,13:10:00,13:25:00,15,Consulta,Información proporcionada,Alto,Atención al Cliente
+52,Cliente ZZ,Agente 2,2024-03-20,13:15:00,13:35:00,20,Soporte,Problema sin resolver,Bajo,Soporte Técnico
+53,Cliente AAA,Agente 3,2024-03-20,13:20:00,13:40:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+54,Cliente BBB,Agente 1,2024-03-20,13:25:00,13:45:00,20,Consulta,Información proporcionada,Medio,Atención al Cliente
+55,Cliente CCC,Agente 2,2024-03-20,13:30:00,13:50:00,20,Venta,Exitosa,Alto,Ventas
+56,Cliente DDD,Agente 3,2024-03-20,13:35:00,13:55:00,20,Queja,Resuelto,Medio,Servicio al Cliente
+57,Cliente EEE,Agente 1,2024-03-20,13:40:00,13:55:00,15,Consulta,Información proporcionada,Bajo,Atención al Cliente
+58,Cliente FFF,Agente 2,2024-03-20,13:45:00,14:05:00,20,Soporte,Técnico resuelto,Alto,Soporte Técnico
+59,Cliente GGG,Agente 3,2024-03-20,13:50:00,14:10:00,20,Venta,Exitosa,Alto,Ventas
+60,Cliente HHH,Agente 1,2024-03-20,13:55:00,14:15:00,20,Consulta,Transferido a otro departamento,Medio,Atención al Cliente
+61,Cliente III,Agente 1,2024-03-20,14:00:00,14:15:00,15,Consulta,Información proporcionada,Alto,Atención al Cliente
+62,Cliente JJJ,Agente 2,2024-03-20,14:05:00,14:25:00,20,Soporte,Problema sin resolver,Bajo,Soporte Técnico
+63,Cliente KKK,Agente 3,2024-03-20,14:10:00,14:30:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+64,Cliente LLL,Agente 1,2024-03-20,14:15:00,14:35:00,20,Consulta,Información proporcionada,Medio,Atención al Cliente
+65,Cliente MMM,Agente 2,2024-03-20,14:20:00,14:40:00,20,Venta,Exitosa,Alto,Ventas
+66,Cliente NNN,Agente 3,2024-03-20,14:25:00,14:45:00,20,Queja,Resuelto,Medio,Servicio al Cliente
+67,Cliente OOO,Agente 1,2024-03-20,14:30:00,14:45:00,15,Consulta,Información proporcionada,Bajo,Atención al Cliente
+68,Cliente PPP,Agente 2,2024-03-20,14:35:00,14:55:00,20,Soporte,Técnico resuelto,Alto,Soporte Técnico
+69,Cliente QQQ,Agente 3,2024-03-20,14:40:00,15:00:00,20,Venta,Exitosa,Alto,Ventas
+70,Cliente RRR,Agente 1,2024-03-20,14:45:00,15:05:00,20,Consulta,Transferido a otro departamento,Medio,Atención al Cliente
+71,Cliente SSS,Agente 1,2024-03-20,15:00:00,15:15:00,15,Consulta,Información proporcionada,Alto,Atención al Cliente
+72,Cliente TTT,Agente 2,2024-03-20,15:05:00,15:25:00,20,Soporte,Problema sin resolver,Bajo,Soporte Técnico
+73,Cliente UUU,Agente 3,2024-03-20,15:10:00,15:30:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+74,Cliente VVV,Agente 1,2024-03-20,15:15:00,15:35:00,20,Consulta,Información proporcionada,Medio,Atención al Cliente
+75,Cliente WWW,Agente 2,2024-03-20,15:20:00,15:40:00,20,Venta,Exitosa,Alto,Ventas
+76,Cliente XXX,Agente 3,2024-03-20,15:25:00,15:45:00,20,Queja,Resuelto,Medio,Servicio al Cliente
+77,Cliente YYY,Agente 1,2024-03-20,15:30:00,15:45:00,15,Consulta,Información proporcionada,Bajo,Atención al Cliente
+78,Cliente ZZZ,Agente 2,2024-03-20,15:35:00,15:55:00,20,Soporte,Técnico resuelto,Alto,Soporte Técnico
+79,Cliente AAAA,Agente 3,2024-03-20,15:40:00,16:00:00,20,Venta,Exitosa,Alto,Ventas
+80,Cliente BBBB,Agente 1,2024-03-20,15:45:00,16:05:00,20,Consulta,Transferido a otro departamento,Medio,Atención al Cliente
+81,Cliente CCCC,Agente 1,2024-03-20,16:00:00,16:15:00,15,Consulta,Información proporcionada,Alto,Atención al Cliente
+82,Cliente DDDD,Agente 2,2024-03-20,16:05:00,16:25:00,20,Soporte,Problema sin resolver,Bajo,Soporte Técnico
+83,Cliente EEEE,Agente 3,2024-03-20,16:10:00,16:30:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+84,Cliente FFFF,Agente 1,2024-03-20,16:15:00,16:35:00,20,Consulta,Información proporcionada,Medio,Atención al Cliente
+85,Cliente GGGG,Agente 2,2024-03-20,16:20:00,16:40:00,20,Venta,Exitosa,Alto,Ventas
+86,Cliente HHHH,Agente 3,2024-03-20,16:25:00,16:45:00,20,Queja,Resuelto,Medio,Servicio al Cliente
+87,Cliente IIII,Agente 1,2024-03-20,16:30:00,16:45:00,15,Consulta,Información proporcionada,Bajo,Atención al Cliente
+88,Cliente JJJJ,Agente 2,2024-03-20,16:35:00,16:55:00,20,Soporte,Técnico resuelto,Alto,Soporte Técnico
+89,Cliente KKKK,Agente 3,2024-03-20,16:40:00,17:00:00,20,Venta,Exitosa,Alto,Ventas
+90,Cliente LLLL,Agente 1,2024-03-20,16:45:00,17:05:00,20,Consulta,Transferido a otro departamento,Medio,Atención al Cliente
+91,Cliente MMMM,Agente 1,2024-03-20,17:00:00,17:15:00,15,Consulta,Información proporcionada,Alto,Atención al Cliente
+92,Cliente NNNN,Agente 2,2024-03-20,17:05:00,17:25:00,20,Soporte,Problema sin resolver,Bajo,Soporte Técnico
+93,Cliente OOOO,Agente 3,2024-03-20,17:10:00,17:30:00,20,Queja,En proceso,Bajo,Servicio al Cliente
+94,Cliente PPPP,Agente 1,2024-03-20,17:15:00,17:35:00,20,Consulta,Información proporcionada,Medio,Atención al Cliente
+95,Cliente QQQQ,Agente 2,2024-03-20,17:20:00,17:40:00,20,Venta,Exitosa,Alto,Ventas
+96,Cliente RRRR,Agente 3,2024-03-20,17:25:00,17:45:00,20,Queja,Resuelto,Medio,Servicio al Cliente
+97,Cliente SSSS,Agente 1,2024-03-20,17:30:00,17:45:00,15,Consulta,Información proporcionada,Bajo,Atención al Cliente
+98,Cliente TTTT,Agente 2,2024-03-20,17:35:00,17:55:00,20,Soporte,Técnico resuelto,Alto,Soporte Técnico
+99,Cliente UUUU,Agente 3,2024-03-20,17:40:00,18:00:00,20,Venta,Exitosa,Alto,Ventas
+100,Cliente VVVV,Agente 1,2024-03-20,17:45:00,18:05:00,20,Consulta,Transferido a otro departamento,Medio,Atención al Cliente
