@@ -4,7 +4,7 @@
 **Student:** Jennifer Victoria Arriola Salazar
 
 This is my **Final Project for Business Analytics at Universidad Cenfotec**.  
-The objective is to design and publish a business‑use **Power BI dashboard** analyzing a call center dataset (100 calls, 20/03/2024) with insights by **Agent, Call Type, Department, Result, and Duration**, including an **Agent slicer**.
+The goal is to design and publish a business‑use **Power BI dashboard** analyzing a call center dataset (100 calls, 20/03/2024) with insights by **Agent, Call Type, Department, Result, and Duration**, including an **Agent slicer**.
 
 ---
 
@@ -18,7 +18,17 @@ The objective is to design and publish a business‑use **Power BI dashboard** a
 6. Chart: number of calls **by Duration** (bucketed)  
 7. Clear, readable design with titles, labels, filters
 
-> A supplemental **Matrix** view was added to enrich analysis (optional but valuable).
+A supplemental **Matrix** view was added to enrich analysis (optional but valuable).
+
+---
+
+## 🖼️ Screenshots
+
+### Page 1 – Overview
+![fpbi](docs/fpbi.png)
+
+### Page 2 – Detail (Matrix & Duration)
+![fppbi](docs/fppbi.png)
 
 ---
 
