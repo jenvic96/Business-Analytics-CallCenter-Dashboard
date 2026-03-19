@@ -6,11 +6,12 @@
 **Scope.** This report analyzes **100 calls** from **20/03/2024** to understand operational volume and outcomes by **Agent, Call Type, Department, Result, and Duration**. The dashboard is organized in two pages: an **Overview** (volume and outcomes with slicers) and a **Detail** page (matrix by department and duration distribution).
 
 ## Screenshots
-fpbi.png  
-*Page 1 – Overview (Agent • Type • Department • Result • Agent Slicer)*
 
-fppbi.png  
-*Page 2 – Matrix by Department and Calls by Duration (Rango Duración)*
+![Page 1 – Overview](fpbi.png)  
+*Agent • Type • Department • Result • Agent Slicer*
+
+![Page 2 – Matrix & Duration](fppbi.png)  
+*Matrix by Department and Calls by Duration (Rango Duración)*
 
 ---
 
@@ -23,7 +24,7 @@ fppbi.png
   *Dataset totals: Atención al Cliente 39, Ventas 21, Soporte Técnico 20, Servicio al Cliente 20.*
 - **Outcomes.** Most calls end in **Información proporcionada**; there is a healthy share of **Exitosa/Resuelto**; a small tail of **Problema sin resolver** remains.  
   *Dataset totals: Información proporcionada 29, Exitosa 21, Técnico resuelto 11, Transferido a otro departamento 10, Resuelto 10, En proceso 10, Problema sin resolver 9.*
-- **Handle Time.** The duration distribution shows **two buckets only**: **11–15 min (22%)** and **16–20 min (78%)**; there are **no** calls outside 11–20 minutes in this sample.
+- **Handle Time.** Duration distribution shows **two buckets**: **11–15 min (22%)** and **16–20 min (78%)**; there are **no** calls outside 11–20 minutes in this sample.
 
 **Business implications.**
 - Staffing/Capacity: One agent consistently carries the highest load (40% of calls).  
@@ -36,6 +37,7 @@ fppbi.png
 ---
 
 ## What I Built (ETL → Model → Visuals)
+
 ### Data Preparation (ETL – Power Query)
 - **Type enforcement:**  
   - `Fecha` **Date**; `Hora de inicio` / `Hora de finalización` **Time**  
@@ -57,11 +59,11 @@ fppbi.png
 - **Page 1:**  
   - Bar – Calls by **Agent**  
   - Column – Calls by **Type**  
-  - Bar/Donut – Calls by **Department**  
+  - Pie/Bar – Calls by **Department**  
   - Column – Calls by **Result**  
   - **Slicer** – Agent (and Department as an additional page control)
 - **Page 2:**  
-  - **Matrix** – Department with Count and a technical “First Tipo de Llamada” aggregation (placeholder; see Next Steps)  
+  - **Matrix** – Department with Count (plus a technical “First Tipo de Llamada” aggregation as placeholder)  
   - Donut – **Calls by Duration** (**Rango Duración**: shows 22% vs 78%)
 
 ---
@@ -80,3 +82,17 @@ fppbi.png
 1. **Time Series:** Add more dates and a Date table to analyze trends, peaks, and SLA compliance.  
 2. **Outcome Quality:** Replace “First Tipo de Llamada” in the matrix with **mode/Top N** or % breakdown; add KPIs for **% Exitosa/Resuelto**.  
 3. **Efficiency:** Track **Average Handle Time (AHT)** over time and build agent‑level duration distributions for coaching.  
+4. **Knowledge Base:** Use Consulta insights to design self‑service content; measure deflection.  
+5. **Data Governance:** Standardize category taxonomies (Result/Department) to avoid drift as data scales.
+
+---
+
+## How to Use
+1. Open `Proyecto_Final_Dashboard_Llamadas.pbix` (if included) or load the clean data from `/data` in Power BI Desktop.  
+2. Confirm types (already enforced in the provided clean files).  
+3. Interact with the **Agent slicer** on Page 1 and the **Department/Duration** slicers on Page 2.
+
+---
+
+## Repository Structure
+``
