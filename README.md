@@ -1,95 +1,115 @@
-# Call Center Analytics – Power BI Dashboard
-**University:** Universidad Cenfotec  
-**Course:** Business Analytics  
-**Author:** Jennifer Victoria Arriola Salazar
+# 📞 Call Center Performance Dashboard — Power BI
 
-**Scope.** This report analyzes **100 calls** from **20/03/2024** to understand operational volume and outcomes by **Agent, Call Type, Department, Result, and Duration**. The dashboard is organized in two pages: an **Overview** (volume and outcomes with slicers) and a **Detail** page (matrix by department and duration distribution).
-
-## Visuals
-
-![Page 1 – Overview](fpbi.png)  
-*Agent • Type • Department • Result • Agent Slicer*
-
-![Page 2 – Matrix & Duration](fppbi.png)  
-*Matrix by Department and Calls by Duration (Rango Duración)*
+> **Final Project | Data Analytics | Universidad Cenfotec**
+> Developed by: Jennifer Victoria Arriola Salazar
 
 ---
 
-## Executive Summary (What the Dashboard Shows)
-- **Volume by Agent.** One agent leads total handled calls; the other two are at similar levels.  
-  *Dataset totals used to build the visuals: Agente 1 = 40, Agente 2 = 30, Agente 3 = 30 (out of 100).*
-- **Call Reasons.** **Consulta** is the largest category, followed by **Venta**, **Soporte**, and **Queja**.  
-  *Dataset totals: Consulta 39, Venta 21, Soporte 20, Queja 20.*
-- **Where Work Happens.** **Atención al Cliente** concentrates the most calls; **Ventas**, **Soporte Técnico**, and **Servicio al Cliente** split the rest.  
-  *Dataset totals: Atención al Cliente 39, Ventas 21, Soporte Técnico 20, Servicio al Cliente 20.*
-- **Outcomes.** Most calls end in **Información proporcionada**; there is a healthy share of **Exitosa/Resuelto**; a small tail of **Problema sin resolver** remains.  
-  *Dataset totals: Información proporcionada 29, Exitosa 21, Técnico resuelto 11, Transferido a otro departamento 10, Resuelto 10, En proceso 10, Problema sin resolver 9.*
-- **Handle Time.** Duration distribution shows **two buckets**: **11–15 min (22%)** and **16–20 min (78%)**; there are **no** calls outside 11–20 minutes in this sample.
+## 📌 Project Overview
 
-**Business implications.**
-- Staffing/Capacity: One agent consistently carries the highest load (40% of calls).  
-- Knowledge Management: With **Consulta** dominating, self‑service content (FAQs, knowledge base) could reduce inbound volume.  
-- Outcome Quality: Strong share of resolved/information‑provided outcomes; unresolved cases warrant targeted review.  
-- Efficiency: With 78% at 16–20 minutes, coaching or process adjustments could shift more volume into the 11–15 bucket.
-
-> **Limitation:** This is a **single‑day** snapshot (20/03/2024). Trend/SLA analysis requires multi‑day data.
+This Power BI dashboard analyzes call center operations for a single day (**March 20, 2024**), providing actionable insights into agent performance, call types, department distribution, and resolution outcomes. The project was designed to simulate a real-world business intelligence scenario for a customer service environment.
 
 ---
 
-## What I Built (ETL → Model → Visuals)
+## 🎯 Objectives
 
-### Data Preparation (ETL – Power Query)
-- **Type enforcement:**  
-  - `Fecha` **Date**; `Hora de inicio` / `Hora de finalización` **Time**  
-  - `Duración (min)` and `ID Llamada` **Whole Number**  
-  - Categorical fields (Agente, Tipo de Llamada, Resultado, Nivel de satisfacción, Departamento) **Text**
-- **Cleaning:** Trimmed text, standardized categories.  
-- **Feature engineering:**  
-  - `FechaHoraInicio` = `Fecha` + `Hora de inicio` (**DateTime**)  
-  - `FechaHoraFin` = `Fecha` + `Hora de finalización` (**DateTime**)  
-  - `Duración calculada (min)` and **validation flag** `Duración correcta`  
-  - **`Rango Duración`** buckets: `<=10`, `11–15`, `16–20`, `21–30`, `>30` (used in duration visuals)
-
-### Data Model (Power BI)
-- **Single fact table** of calls with dimensional attributes (Agent, Type, Department, Result).  
-- **Core measure:** `Total Llamadas = COUNT([ID Llamada])`.  
-- (Optional) % composition measures by Type/Result for quick benchmarking.
-
-### Visual Design
-- **Page 1:**  
-  - Bar – Calls by **Agent**  
-  - Column – Calls by **Type**  
-  - Pie/Bar – Calls by **Department**  
-  - Column – Calls by **Result**  
-  - **Slicer** – Agent (and Department as an additional page control)
-- **Page 2:**  
-  - **Matrix** – Department with Count (plus a technical “First Tipo de Llamada” aggregation as placeholder)  
-  - Donut – **Calls by Duration** (**Rango Duración**: shows 22% vs 78%)
+- Monitor and compare individual agent performance
+- Identify the most common call types handled by the center
+- Analyze call distribution across departments
+- Evaluate call outcomes and resolution rates
+- Segment calls by duration to uncover service efficiency patterns
 
 ---
 
-## Key Metrics (from the dataset used to build the report)
-- **Total calls:** 100  
-- **By Agent:** 40 / 30 / 30  
-- **By Type:** Consulta 39, Venta 21, Soporte 20, Queja 20  
-- **By Department:** Atención al Cliente 39, Ventas 21, Soporte Técnico 20, Servicio al Cliente 20  
-- **By Result:** Info. proporcionada 29, Exitosa 21, Técnico resuelto 11, Transferido a otro departamento 10, Resuelto 10, En proceso 10, Problema sin resolver 9  
-- **By Duration (Rango):** 11–15 = 22; 16–20 = 78; others = 0
+## 📊 Dashboard Pages
+
+### Page 1 — Call Center Performance Dashboard
+
+![Dashboard Page 1](fpbi.png)
+
+| Visual | Description |
+|--------|-------------|
+| **Llamadas Atendidas** (Bar Chart) | Compares total calls handled per agent: Esteban (40), Patricia (30), Rodrigo (30) |
+| **Tipo de Llamada** (Bar Chart) | Breaks down call volume by type: Consulta (38), Venta (21), Queja (20), Soporte (20) |
+| **Llamadas por Departamento** (Pie Chart) | Shows department share: Atención al Cliente (39%), Ventas (21%), Servicio al Cliente (20%), Soporte Técnico (20%) |
+| **Resultado de la Llamada** (Bar Chart) | Displays outcomes ranging from unresolved issues to successful resolutions and information provided |
+
+**Filters available:** Agent, Department
 
 ---
 
-## Next Steps (Roadmap)
-1. **Time Series:** Add more dates and a Date table to analyze trends, peaks, and SLA compliance.  
-2. **Outcome Quality:** Replace “First Tipo de Llamada” in the matrix with **mode/Top N** or % breakdown; add KPIs for **% Exitosa/Resuelto**.  
-3. **Efficiency:** Track **Average Handle Time (AHT)** over time and build agent‑level duration distributions for coaching.  
-4. **Knowledge Base:** Use Consulta insights to design self‑service content; measure deflection.  
-5. **Data Governance:** Standardize category taxonomies (Result/Department) to avoid drift as data scales.
+### Page 2 — Distribución por Departamento
+
+![Dashboard Page 2](fppbi.png)
+
+| Visual | Description |
+|--------|-------------|
+| **Department Summary Table** | Lists each department with call count and primary call type (e.g., Atención al Cliente → 39 calls, Consulta) |
+| **Llamadas por Duración** (Donut Chart) | 78% of calls lasted 15–20 minutes (B.15-20), while 22% lasted under 15 minutes (A.0-15) |
+
+**Filters available:** Department, Call Duration (min)
 
 ---
 
-## How to Use
-1. Open `Proyecto_Final_Dashboard_Llamadas.pbix` (if included) or load the clean data from `/data` in Power BI Desktop.  
-2. Confirm types (already enforced in the provided clean files).  
-3. Interact with the **Agent slicer** on Page 1 and the **Department/Duration** slicers on Page 2.
+## 🛠️ Tools & Technologies
 
+| Tool | Purpose |
+|------|---------|
+| **Microsoft Power BI Desktop** | Dashboard creation and data modeling |
+| **DAX (Data Analysis Expressions)** | Custom measures and calculated columns |
+| **Power Query** | Data transformation and cleaning |
 
+---
+
+## 📁 Project Structure
+
+```
+📦 call-center-dashboard/
+ ├── Proyecto_Final_Jennifer_Arriola.pbix   # Power BI project file
+ ├── call_center_data.txt                   # Raw dataset (100 records)
+ ├── fpbi.png                               # Dashboard screenshot — Page 1
+ ├── fppbi.png                              # Dashboard screenshot — Page 2
+ └── README.md                              # Project documentation
+```
+
+---
+
+## 💡 Key Insights
+
+- **Esteban** was the highest-performing agent, handling 40% more calls than his colleagues.
+- **Consultas** were the most frequent call type, suggesting a potential need for better self-service resources.
+- **Atención al Cliente** handled the most volume (39% of all calls), making it the most critical department.
+- The majority of calls (**78%**) lasted between 15–20 minutes, indicating a relatively standardized service time.
+- A significant share of calls resulted in **"Información proporcionada"** as the outcome, reflecting successful informational support.
+
+---
+
+## 🚀 How to Open
+
+1. Download the `.pbix` file from this repository.
+2. Open it with **Microsoft Power BI Desktop** (free download at [powerbi.microsoft.com](https://powerbi.microsoft.com)).
+3. Explore using the slicers/filters on each page.
+
+---
+
+## 🎓 Academic Context
+
+This project was developed as the **final capstone** for the *Data Analytics* program at **Universidad Cenfotec** (Costa Rica). It demonstrates proficiency in:
+
+- Business intelligence dashboard design
+- Data visualization best practices
+- DAX formula authoring
+- Storytelling with data
+
+---
+
+## 👩‍💻 Author
+
+**Jennifer Victoria Arriola Salazar**
+- 🎓 Technical Certificate in Data Analytics · Universidad Cenfotec
+- 💼 [LinkedIn](https://www.linkedin.com/in/jennifervictoriaarriolasalazar/)
+- 🐙 [GitHub](https://github.com/jenvic96)
+
+---
+
+*Feel free to explore the dashboard and reach out with any questions!*
