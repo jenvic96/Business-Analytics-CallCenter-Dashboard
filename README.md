@@ -5,7 +5,7 @@
 
 **Scope.** This report analyzes **100 calls** from **20/03/2024** to understand operational volume and outcomes by **Agent, Call Type, Department, Result, and Duration**. The dashboard is organized in two pages: an **Overview** (volume and outcomes with slicers) and a **Detail** page (matrix by department and duration distribution).
 
-## Screenshots
+## Visuals
 
 ![Page 1 – Overview](fpbi.png)  
 *Agent • Type • Department • Result • Agent Slicer*
