@@ -92,7 +92,4 @@
 2. Confirm types (already enforced in the provided clean files).  
 3. Interact with the **Agent slicer** on Page 1 and the **Department/Duration** slicers on Page 2.
 
----
 
-## Repository Structure
-``
