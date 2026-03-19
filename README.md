@@ -6,7 +6,7 @@
 This is my **Final Project for Business Analytics at Universidad Cenfotec**.  
 The objective is to design a business‑ready **Power BI dashboard** using a call center dataset (100 calls, 20/03/2024) to analyze operations by **Agent, Call Type, Department, Result, and Duration**, including an **Agent slicer** for interactivity.
 
-## 🖼️ Screenshots
+## 
 ![Dashboard Overview](fpbi.png)  
 *Page 1 – Overview (Agent • Type • Department • Result • Slicer by Agent)*
 
