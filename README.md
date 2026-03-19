@@ -25,8 +25,3 @@ The goal is to design and publish a business‑use **Power BI dashboard** analyz
 
 *A supplemental **Matrix** view was added to enrich analysis (optional but valuable).*
 
----
-
-## 📂 Repository Structure
-
-``
