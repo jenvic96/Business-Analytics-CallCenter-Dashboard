@@ -1,91 +1,82 @@
-# Final Project – Business Analytics (Power BI)
-**Universidad Cenfotec**  
+# Call Center Analytics – Power BI Dashboard
+**University:** Universidad Cenfotec  
 **Course:** Business Analytics  
-**Student:** Jennifer Victoria Arriola Salazar
+**Author:** Jennifer Victoria Arriola Salazar
 
-This is my **Final Project for Business Analytics at Universidad Cenfotec**.  
-The objective is to design a business‑ready **Power BI dashboard** using a call center dataset (100 calls, 20/03/2024) to analyze operations by **Agent, Call Type, Department, Result, and Duration**, including an **Agent slicer** for interactivity.
+**Scope.** This report analyzes **100 calls** from **20/03/2024** to understand operational volume and outcomes by **Agent, Call Type, Department, Result, and Duration**. The dashboard is organized in two pages: an **Overview** (volume and outcomes with slicers) and a **Detail** page (matrix by department and duration distribution).
 
-## 
-![Dashboard Overview](fpbi.png)  
-*Page 1 – Overview (Agent • Type • Department • Result • Slicer by Agent)*
+## Screenshots
+fpbi.png  
+*Page 1 – Overview (Agent • Type • Department • Result • Agent Slicer)*
 
-![Matrix & Duration](fppbi.png)  
+fppbi.png  
 *Page 2 – Matrix by Department and Calls by Duration (Rango Duración)*
 
 ---
 
-## ✅ Project Requirements (Completed)
-1. Chart: number of calls **by Agent**  
-2. Chart: number of calls **by Call Type**  
-3. Chart: number of calls **by Department**  
-4. Chart: number of calls **by Result**  
-5. **Slicer by Agent**  
-6. Chart: number of calls **by Duration** (bucketed)  
-7. Clean, readable design with titles, labels, and filters
+## Executive Summary (What the Dashboard Shows)
+- **Volume by Agent.** One agent leads total handled calls; the other two are at similar levels.  
+  *Dataset totals used to build the visuals: Agente 1 = 40, Agente 2 = 30, Agente 3 = 30 (out of 100).*
+- **Call Reasons.** **Consulta** is the largest category, followed by **Venta**, **Soporte**, and **Queja**.  
+  *Dataset totals: Consulta 39, Venta 21, Soporte 20, Queja 20.*
+- **Where Work Happens.** **Atención al Cliente** concentrates the most calls; **Ventas**, **Soporte Técnico**, and **Servicio al Cliente** split the rest.  
+  *Dataset totals: Atención al Cliente 39, Ventas 21, Soporte Técnico 20, Servicio al Cliente 20.*
+- **Outcomes.** Most calls end in **Información proporcionada**; there is a healthy share of **Exitosa/Resuelto**; a small tail of **Problema sin resolver** remains.  
+  *Dataset totals: Información proporcionada 29, Exitosa 21, Técnico resuelto 11, Transferido a otro departamento 10, Resuelto 10, En proceso 10, Problema sin resolver 9.*
+- **Handle Time.** The duration distribution shows **two buckets only**: **11–15 min (22%)** and **16–20 min (78%)**; there are **no** calls outside 11–20 minutes in this sample.
 
-*A supplemental **Matrix** view was included to enrich analysis.*
+**Business implications.**
+- Staffing/Capacity: One agent consistently carries the highest load (40% of calls).  
+- Knowledge Management: With **Consulta** dominating, self‑service content (FAQs, knowledge base) could reduce inbound volume.  
+- Outcome Quality: Strong share of resolved/information‑provided outcomes; unresolved cases warrant targeted review.  
+- Efficiency: With 78% at 16–20 minutes, coaching or process adjustments could shift more volume into the 11–15 bucket.
 
----
-
-## 📊 Key Findings (Summary)
-- **Total calls:** 100 (all on 20/03/2024)  
-- **By Agent:** Agente 1 **40**, Agente 2 **30**, Agente 3 **30** → *Agente 1 has the highest workload (40%).*  
-- **By Type:** **Consulta 39%**, Venta 21%, Soporte 20%, Queja 20% → *Consultas dominate the volume.*  
-- **By Department:** Atención al Cliente **39**, Ventas 21, Soporte Técnico 20, Servicio al Cliente 20 → *Highest load in Atención al Cliente.*  
-- **By Result:** Información proporcionada **29**, Exitosa **21**, Técnico resuelto **11**, Transferido/Resuelto/En proceso ~**10** each, Problema sin resolver **9**.  
-- **By Duration (Rango Duración):** **11–15 min: 22**, **16–20 min: 78** → *78% of calls last 16–20 minutes.*
+> **Limitation:** This is a **single‑day** snapshot (20/03/2024). Trend/SLA analysis requires multi‑day data.
 
 ---
 
-## 🧾 Dataset
-**Original columns**
-- `ID Llamada` (Whole Number), `Cliente` (Text), `Agente` (Text), `Fecha` (Date),  
-  `Hora de inicio` (Time), `Hora de finalización` (Time), `Duración (min)` (Whole Number),  
-  `Tipo de Llamada` (Text), `Resultado` (Text), `Nivel de satisfacción` (Text), `Departamento` (Text)
+## What I Built (ETL → Model → Visuals)
+### Data Preparation (ETL – Power Query)
+- **Type enforcement:**  
+  - `Fecha` **Date**; `Hora de inicio` / `Hora de finalización` **Time**  
+  - `Duración (min)` and `ID Llamada` **Whole Number**  
+  - Categorical fields (Agente, Tipo de Llamada, Resultado, Nivel de satisfacción, Departamento) **Text**
+- **Cleaning:** Trimmed text, standardized categories.  
+- **Feature engineering:**  
+  - `FechaHoraInicio` = `Fecha` + `Hora de inicio` (**DateTime**)  
+  - `FechaHoraFin` = `Fecha` + `Hora de finalización` (**DateTime**)  
+  - `Duración calculada (min)` and **validation flag** `Duración correcta`  
+  - **`Rango Duración`** buckets: `<=10`, `11–15`, `16–20`, `21–30`, `>30` (used in duration visuals)
 
-**Derived columns**
-- `FechaHoraInicio`, `FechaHoraFin` (Date/Time)  
-- `Duración calculada (min)` (validation)  
-- `Duración correcta` (True/False)  
-- `Rango Duración` (<=10, 11–15, 16–20, 21–30, >30)
+### Data Model (Power BI)
+- **Single fact table** of calls with dimensional attributes (Agent, Type, Department, Result).  
+- **Core measure:** `Total Llamadas = COUNT([ID Llamada])`.  
+- (Optional) % composition measures by Type/Result for quick benchmarking.
 
----
-
-## 🧹 Data Preparation (Power Query)
-- Trim de textos y tipificación correcta (Date / Time / Whole Number / Text).  
-- Cálculo y validación de duración (Start–End).  
-- **Bucketing** de duración en `Rango Duración` para análisis claro.  
-- Consistencia verificada: las duraciones calculadas coinciden con las reportadas.
-
----
-
-## 📈 Dashboard Contents
-- **Bar**: Calls by Agent  
-- **Column**: Calls by Type  
-- **Bar**: Calls by Department  
-- **Column**: Calls by Result  
-- **Column**: Calls by Duration (Rango Duración)  
-- **Slicer**: Agent  
-- **Matrix (optional)**: e.g., Department × Type or Duration × Agent
-
-**Title suggestions**
-- *Llamadas atendidas por Agente*  
-- *Cantidad de llamadas por Tipo de Llamada*  
-- *Llamadas por Departamento*  
-- *Resultado de la Llamada*  
-- *Cantidad de llamadas atendidas por Duración*  
-- *Slicer: Filtrar por Agente*
+### Visual Design
+- **Page 1:**  
+  - Bar – Calls by **Agent**  
+  - Column – Calls by **Type**  
+  - Bar/Donut – Calls by **Department**  
+  - Column – Calls by **Result**  
+  - **Slicer** – Agent (and Department as an additional page control)
+- **Page 2:**  
+  - **Matrix** – Department with Count and a technical “First Tipo de Llamada” aggregation (placeholder; see Next Steps)  
+  - Donut – **Calls by Duration** (**Rango Duración**: shows 22% vs 78%)
 
 ---
 
-## 🧮 Helpful DAX
-```DAX
-Total Llamadas = COUNT('Tabla'[ID Llamada])
+## Key Metrics (from the dataset used to build the report)
+- **Total calls:** 100  
+- **By Agent:** 40 / 30 / 30  
+- **By Type:** Consulta 39, Venta 21, Soporte 20, Queja 20  
+- **By Department:** Atención al Cliente 39, Ventas 21, Soporte Técnico 20, Servicio al Cliente 20  
+- **By Result:** Info. proporcionada 29, Exitosa 21, Técnico resuelto 11, Transferido a otro departamento 10, Resuelto 10, En proceso 10, Problema sin resolver 9  
+- **By Duration (Rango):** 11–15 = 22; 16–20 = 78; others = 0
 
-% por Tipo =
-DIVIDE([Total Llamadas], CALCULATE([Total Llamadas], ALL('Tabla'[Tipo de Llamada])))
+---
 
-% por Resultado =
-DIVIDE([Total Llamadas], CALCULATE([Total Llamadas], ALL('Tabla'[Resultado])))
-``
+## Next Steps (Roadmap)
+1. **Time Series:** Add more dates and a Date table to analyze trends, peaks, and SLA compliance.  
+2. **Outcome Quality:** Replace “First Tipo de Llamada” in the matrix with **mode/Top N** or % breakdown; add KPIs for **% Exitosa/Resuelto**.  
+3. **Efficiency:** Track **Average Handle Time (AHT)** over time and build agent‑level duration distributions for coaching.  
